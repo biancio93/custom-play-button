@@ -1,0 +1,96 @@
+*{
+    margin:0;
+}
+.container{
+    width:30%;
+    margin: 0 auto;
+}
+
+body {
+    background: #333;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .track{
+      opacity:0;
+  }
+  .play{
+    fill: #07FFFF;
+    transform: scale(0.6);
+    transform-origin: center;
+  }
+  .play-shadow{
+    fill: #07FFFF;
+    transform-origin: center;
+    animation: up-down-shadow 5s ease infinite;
+  }
+  .play-animation{
+    animation: up-down 10s ease infinite;
+    transform-origin: center;
+  }
+  .shadow-2{
+      animation-delay: 1s;
+  }
+
+  .animation-path.track {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: dashmove 1.95s ease forwards;
+    opacity:1;
+  }
+
+
+  .marker {
+    motion-path: path('M236.08,143.48a119.07,119.07,0,1,1,2.08-33');
+    offset-path: path('M236.08,143.48a119.07,119.07,0,1,1,2.08-33');
+    opacity:0;
+  }
+  
+  .animation-circle.marker {
+    motion-path: path('M236.08,143.48a119.07,119.07,0,1,1,2.08-33');
+    offset-path: path('M236.08,143.48a119.07,119.07,0,1,1,2.08-33');
+    animation: move 1s ease forwards;
+    opacity:1;
+  }
+
+  
+  
+  @keyframes move {
+    100% { 
+      motion-offset: 100%;
+      offset-distance: 100%;
+    }
+  }
+  @keyframes dashmove {
+    from{
+        stroke-dashoffset: 1000;
+    }
+    to { 
+        stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes up-down{
+      0%{
+          transform: translatey(10px);
+      }
+      50%{
+        transform: translatey(-10px);
+    }
+    100%{
+        transform: translatey(10px);
+    }
+  }
+
+  @keyframes up-down-shadow{
+    0%{
+        transform: scale(0);
+        opacity:0.5;
+    }
+    100%{
+      transform: scale(1);
+      opacity:0;
+  }
+  }
